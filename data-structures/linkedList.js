@@ -92,13 +92,23 @@ function LinkedList(headValue) {
 
 LinkedList.prototype.forEach = function(callback) {
   // implement me...
+  var node = this.head;
+  while(node) {
+    callback(node.value);
+    node = node.next;
+  }
 };
-// Time complexity:
+// Time complexity: O(n)
 
 LinkedList.prototype.print = function() {
   // implement me...
+  var result = [];
+  this.forEach((value) => {
+    return result.push(value);
+  });
+  return result.join(',');
 };
-// Time complexity:
+// Time complexity: O(n)
 
 LinkedList.prototype.insertAfter = function(node, value) {
   // implement me...
