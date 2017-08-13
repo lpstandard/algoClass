@@ -112,6 +112,7 @@ LinkedList.prototype.print = function() {
 
 LinkedList.prototype.insertAfter = function(node, value) {
   // implement me...
+  
 };
 // Time complexity:
 
