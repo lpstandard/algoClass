@@ -52,26 +52,44 @@ What's the time complexity?
 
 function Queue(capacity) {
   // implement me...
+  this.capacity = capacity || Infinity;
+  this.storage = {};
+  this.head = 0;
+  this.tail = 0;
 }
 
 Queue.prototype.enqueue = function(value) {
   // implement me...
+  if(this.count() < this.capacity){
+    this.storage[this.tail++] = value;
+    return this.count();
+  }
+  return 'Max capacity has been reached.'
 };
 // Time complexity:
+// O(1)
 
 Queue.prototype.dequeue = function() {
   // implement me...
+  let ele = this.storage[this.head];
+  delete this.storage[this.head];
+  if(this.head < this.tail) this.head++;
+  return ele;
 };
 // Time complexity:
+// O(1)
 
 Queue.prototype.peek = function() {
   // implement me...
+  return this.storage[this.head];
 };
 
 Queue.prototype.count = function() {
   // implement me...
+  return this.tail - this.head;
 };
 // Time complexity:
+// O(n)
 
 
 
